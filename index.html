@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="ed">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <i class="fa fa-bars" id="gg" style='font-size:30px; color:rgb(255, 255, 255);'></i>
+    </div>
+  
+    <img src="https://i.pinimg.com/236x/fa/c6/e4/fac6e4094eb02cde407cd7ae5a11520a.jpg" alt="BackgroundImage" class="ved">
+    <style>
+
+       body{
+        background-color:black;
+       }
+.ved{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+
+
+
+}
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+     @import url('https://fonts.googleapis.com/css?family=McLaren|Permanent+Marker|Supermercado+One&display=swap');
+
+
+
+
+
+.place, .date, .temperature, .divider, .main, .maxmin_temp{
+    position: absolute ;
+    color: white;
+    font-family: 'Muli', cursive;
+    height: 100px;
+    width: 100%;
+    margin: auto;
+    top: 10%;
+    right: 0;left: 0;
+    font-size: 35px;
+    text-align: center;
+    text-shadow: 0 0 20px black;
+}
+.date{
+    font-size: 17px;
+    top: 95px;
+
+}
+.temperature{
+    top:120px;
+    font-size: 100px;
+}
+.divider{
+    top: -110px;
+    font-size: 20px;
+}
+.main{
+    top: 240px;
+    font-size: 20px;
+}
+.maxmin_temp{
+    top: 280px;
+    font-size: 20px;
+}
+
+
+    </style>
+
+    <script>
+        var y;
+         window.onload = search();
+function search(){
+    var x = prompt("Enter your location");
+    var api = "https://api.openweathermap.org/data/2.5/weather?q="+x+"&units=metric&appid=af50bbd7309f973b6a2318253e78ad20";
+   
+    y = Math.floor((Math.random() * 17) );
+    $.getJSON(api, response);
+    
+}
+function response(data){
+
+    var d = new Date();
+var arr = ["https://i.pinimg.com/236x/fa/c6/e4/fac6e4094eb02cde407cd7ae5a11520a.jpg","https://i.pinimg.com/236x/a7/cc/f1/a7ccf192c6732b2b9d5772a2ab8adb9f.jpg","https://i.pinimg.com/236x/37/14/e0/3714e0d1c710fdc791123423ceec4231.jpg","https://i.pinimg.com/236x/37/14/e0/3714e0d1c710fdc791123423ceec4231.jpg","https://i.pinimg.com/236x/7b/07/5e/7b075e94f4952c79866edec8c1fcd13d.jpg","https://i.pinimg.com/236x/46/48/3e/46483ec109db69fc1165fc6b7fd20e81.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/c2/e5/45/c2e545df4d48a8cb46a6e32bdb8a4fe2.jpg","https://i.pinimg.com/236x/96/d3/4f/96d34fb7f7d8baff0fad71aa56040fa9.jpg","https://i.pinimg.com/236x/fd/86/a3/fd86a356e6fa35b006fd29190255eaf5.jpg","https://i.pinimg.com/236x/12/39/e8/1239e898f1192f4b42e5790f67e75e59.jpg","https://i.pinimg.com/236x/d5/6f/11/d56f1162f94cee2bf8281ffa99033517.jpg"];
+    console.log(y)
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.querySelector('.ved').src=arr[y];
+    document.querySelector('.temperature').innerHTML = data.main.temp+"°C";
+    document.querySelector('.main').innerHTML = data.weather[0].main;
+    document.querySelector('.maxmin_temp').innerHTML = data.main.temp_max+"°C / "+data.main.temp_min+"°C";
+  
+}
+    </script>
+     <div class="header">
+        <div class="container"></div>
+        
+    </div>
+  
+        <div class="temperature">11°C</div>
+        <div class="divider">------------------</div>
+        <div class="main">Haze</div>
+        <div class="maxmin_temp">21°C / 29°C</div>
+    </div>
+    <div class="footer">
+        <div class="bar"></div>
+        <input type="text" class="search" value="Los Angeles" placeholder="e.g. Kolkata" onchange="search();">
+</body>
+</html>
